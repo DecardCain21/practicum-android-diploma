@@ -55,4 +55,51 @@
         <item name="cornerSize">@dimen/mark_12dp</item>
     </style>
 
+    <style name="VacancyDetailNameTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_32sp</item>
+        <item name="android:fontFamily">@font/ys_display_bold</item>
+    </style>
+
+    <style name="VacancyDetailSalaryTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="VacancyDetailEmployerNameTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="VacancyDetailEmployerCityTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="VacancyDetailSubtitleTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="VacancyDetailDescriptionTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="VacancyDetailTitleDescriptionTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
 </resources>

@@ -2,6 +2,7 @@
 <resources>
     <dimen name="text_mark_12sp">12sp</dimen>
     <dimen name="text_mark_16sp">16sp</dimen>
+    <dimen name="text_mark_18sp">18sp</dimen>
     <dimen name="text_mark_22sp">22sp</dimen>
     <dimen name="text_mark_32sp">32sp</dimen>
 
@@ -21,5 +22,9 @@
     <dimen name="mark_24dp">24dp</dimen>
     <dimen name="mark_30dp">30dp</dimen>
     <dimen name="mark_32dp">32dp</dimen>
+    <dimen name="mark_40dp">40dp</dimen>
     <dimen name="mark_48dp">48dp</dimen>
+    <dimen name="mark_80dp">80dp</dimen>
+    <dimen name="mark_268dp">268dp</dimen>
+
 </resources>

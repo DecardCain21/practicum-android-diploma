@@ -16,6 +16,12 @@
     <string name="server_error">Ошибка сервера</string>
     <string name="list_is_empty">Список пуст</string>
     <string name="search_hint">Введите запрос</string>
+    <string name="required_experience">Требуемый опыт</string>
+    <string name="vacancy_description">Описание вакансии</string>
+    <string name="responsibilities">Обязанности</string>
+    <string name="requirements">Требования</string>
+    <string name="conditions">Условия</string>
+    <string name="key_skills">Ключевые навыки</string>
     <string name="menu_filter">Фильтр</string>
     <string name="not_vacancies">Таких вакансий нет</string>
 

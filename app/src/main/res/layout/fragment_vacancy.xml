@@ -1,67 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/white_to_black"
+    android:orientation="vertical"
     tools:context=".ui.vacancy.VacancyFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/start_guideline_16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/mark_16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/end_guideline_16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/mark_16dp" />
-
-    <Toolbar
-        android:id="@+id/tb_header"
-        style="@style/ToolbarHeaderStyle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:navigationIcon="@drawable/ic_arrow_back"
-        android:title="@string/vacancy_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_placeholder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="iv_placeholder, tv_placeholder" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_vacancy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_placeholder"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toTopOf="@id/tv_placeholder"
-        app:layout_constraintEnd_toEndOf="@id/end_guideline_16dp"
-        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
-        app:layout_constraintTop_toBottomOf="@id/tb_header"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:src="@drawable/smile" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/start_guideline_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/mark_16dp" />
 
-    <TextView
-        android:id="@+id/tv_placeholder"
-        style="@style/PlaceholderTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/mark_16dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_placeholder"
-        tools:text="Улыбок тебе дед макар" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/end_guideline_16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/mark_16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Toolbar
+                android:id="@+id/tb_header"
+                style="@style/ToolbarHeaderStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:navigationIcon="@drawable/ic_arrow_back"
+                android:title="@string/vacancy_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_favorites"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/mark_4dp"
+                android:src="@drawable/ic_favorite_add"
+                app:layout_constraintBottom_toBottomOf="@id/tb_header"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintTop_toTopOf="@id/tb_header" />
+
+            <ImageView
+                android:id="@+id/iv_sharing"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/mark_24dp"
+                android:src="@drawable/ic_sharing"
+                app:layout_constraintBottom_toBottomOf="@id/tb_header"
+                app:layout_constraintEnd_toStartOf="@id/iv_favorites"
+                app:layout_constraintTop_toTopOf="@id/tb_header" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_vacancy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_vacancy_name,tv_vacancy_salary,siv_vacancy_logo_frame,siv_vacancy_logo,tv_vacancy_employer_name,tv_vacancy_employer_city,tv_vacancy_title_experience,tv_vacancy_experience,tv_vacancy_schedule,tv_vacancy_title_description,tv_vacancy_title_responsibilities,tv_vacancy_responsibilities,tv_vacancy_title_requirements,tv_vacancy_requirements,tv_vacancy_title_conditions,tv_vacancy_conditions,tv_vacancy_title_skills,tv_vacancy_skills" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_name"
+                style="@style/VacancyDetailNameTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_24dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tb_header"
+                tools:text="Android-разработчик" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_salary"
+                style="@style/VacancyDetailSalaryTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_4dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_name"
+                tools:text="от 100 000 ₽" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_vacancy_logo_frame"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mark_80dp"
+                android:layout_marginTop="@dimen/mark_24dp"
+                android:background="@color/light_grey"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_salary"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/siv_vacancy_logo"
+                android:layout_width="@dimen/mark_48dp"
+                android:layout_height="@dimen/mark_48dp"
+                android:layout_margin="@dimen/mark_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toTopOf="@id/siv_vacancy_logo_frame"
+                app:shapeAppearanceOverlay="@style/RoundedImageView"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_employer_name"
+                style="@style/VacancyDetailEmployerNameTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mark_8dp"
+                android:layout_marginEnd="@dimen/mark_16dp"
+                app:layout_constraintEnd_toEndOf="@id/siv_vacancy_logo_frame"
+                app:layout_constraintStart_toEndOf="@id/siv_vacancy_logo"
+                app:layout_constraintTop_toTopOf="@id/siv_vacancy_logo"
+                tools:text="Еда" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_employer_city"
+                style="@style/VacancyDetailEmployerCityTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mark_8dp"
+                android:layout_marginEnd="@dimen/mark_16dp"
+                app:layout_constraintEnd_toEndOf="@id/siv_vacancy_logo_frame"
+                app:layout_constraintStart_toEndOf="@id/siv_vacancy_logo"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_employer_name"
+                tools:text="Москва" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_experience"
+                style="@style/VacancyDetailSubtitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_24dp"
+                android:text="@string/required_experience"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/siv_vacancy_logo_frame" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_experience"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_4dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_experience"
+                tools:text="От 1 года до 3 лет" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_schedule"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_8dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_experience"
+                tools:text="Полная занятость, Удаленная работа" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_description"
+                style="@style/VacancyDetailTitleDescriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_mark_32sp"
+                android:text="@string/vacancy_description"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_schedule" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_responsibilities"
+                style="@style/VacancyDetailSubtitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_16dp"
+                android:text="@string/responsibilities"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_description" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_responsibilities"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_4dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_responsibilities"
+                tools:text="Разрабатывать новую функциональность приложения &#xA;Помогать с интеграцией нашего SDK в другие приложения &#xA;Проектировать большие новые модули &#xA;Писать UI- и unit-тесты &#xA;Следить за работоспособностью сервиса и устранять технический долг" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_requirements"
+                style="@style/VacancyDetailSubtitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_16dp"
+                android:text="@string/requirements"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_responsibilities" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_requirements"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_4dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_requirements"
+                tools:text="100% Kotlin&#xA;WebRTC&#xA;CI по модели Trunk Based Development" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_conditions"
+                style="@style/VacancyDetailSubtitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_16dp"
+                android:text="@string/conditions"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_requirements" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_conditions"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_4dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_conditions"
+                tools:text="сильная команда, с которой можно расти&#xA;возможность влиять на процесс и&#xA;результат&#xA;расширенная программа ДМС:&#xA;стоматология, обследования, вызов врача&#xA;на дом и многое другое" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_title_skills"
+                style="@style/VacancyDetailTitleDescriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_mark_32sp"
+                android:text="@string/key_skills"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_conditions" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_skills"
+                style="@style/VacancyDetailDescriptionTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mark_16dp"
+                android:paddingBottom="@dimen/mark_24dp"
+                app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+                app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_title_skills"
+                tools:text="Знание классических алгоритмов и структуры данных&#xA;Программирование для Android больше одного года&#xA;Знание WebRTC" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="iv_placeholder, tv_placeholder" />
+
+        <ImageView
+            android:id="@+id/iv_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:src="@drawable/smile" />
+
+        <TextView
+            android:id="@+id/tv_placeholder"
+            style="@style/PlaceholderTextStyle"
+            android:layout_width="@dimen/mark_268dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mark_16dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_placeholder"
+            tools:text="Улыбок тебе дед макар" />
+
+        <ProgressBar
+            android:id="@+id/pb_vacancy"
+            android:layout_width="@dimen/mark_48dp"
+            android:layout_height="@dimen/mark_48dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/overlay"
+        android:visibility="gone" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
