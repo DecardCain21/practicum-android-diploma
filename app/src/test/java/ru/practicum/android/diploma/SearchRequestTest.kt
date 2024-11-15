@@ -7,7 +7,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
-import ru.practicum.android.diploma.domain.models.Vacancy
+import ru.practicum.android.diploma.domain.models.VacancySearchResult
 import ru.practicum.android.diploma.domain.usecase.GetVacanciesUseCase
 
 @ExperimentalCoroutinesApi
@@ -17,7 +17,7 @@ class SearchRequestTest {
     @Test
     fun testGetVacancies() = runTest {
         // Настройте ваши ожидания
-        val expectedResult = mockk<Pair<List<Vacancy>?, String?>>()
+        val expectedResult = mockk<Pair<VacancySearchResult?, String?>>()
         coEvery { testUseCase.execute("Android разработчик", 1) } returns expectedResult
 
         // Запустите ваш код в корутине
