@@ -1,8 +1,20 @@
-package ru.practicum.android.diploma.data.dto.vacancy
+package ru.practicum.android.diploma.data.dto.vacancy.self
 
 import com.google.gson.annotations.SerializedName
+import ru.practicum.android.diploma.data.dto.vacancy.nested.AddressDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.AreaDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.BrandingDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.DepartmentDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.EmployerDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.EmploymentDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.ExperienceDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.ProfessionalRoleDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.SalaryDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.ScheduleDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.SnippetDto
+import ru.practicum.android.diploma.data.dto.vacancy.nested.TypeDto
 
-data class ItemDto(
+data class VacancyDto(
     @SerializedName("accept_incomplete_resumes")
     val acceptIncompleteResumes: Boolean,
     @SerializedName("accept_temporary")
@@ -64,7 +76,7 @@ data class ItemDto(
     @SerializedName("show_logo_in_search")
     val showLogoInSearch: Boolean,
     @SerializedName("snippet")
-    val snippet: SnippetDto,
+    val snippet: SnippetDto?,
     @SerializedName("sort_point_distance")
     val sortPointDistance: Any,
     @SerializedName("type")

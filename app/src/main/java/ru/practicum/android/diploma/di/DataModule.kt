@@ -7,7 +7,8 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.practicum.android.diploma.data.db.AppDatabase
-import ru.practicum.android.diploma.data.mapper.VacancyResponseMapper
+import ru.practicum.android.diploma.data.mapper.VacancyDetailsMapper
+import ru.practicum.android.diploma.data.mapper.VacancyMapper
 import ru.practicum.android.diploma.data.network.AuthorizationInterceptor
 import ru.practicum.android.diploma.data.network.HeadHunterApiService
 import ru.practicum.android.diploma.data.network.NetworkClient
@@ -37,7 +38,11 @@ val dataModule = module {
     }
 
     factory {
-        VacancyResponseMapper()
+        VacancyMapper()
+    }
+
+    factory {
+        VacancyDetailsMapper()
     }
 
     single<NetworkClient> {

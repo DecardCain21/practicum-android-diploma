@@ -1,8 +1,8 @@
-package ru.practicum.android.diploma.data.dto.vacancy
+package ru.practicum.android.diploma.data.dto.vacancy.nested
 
 import com.google.gson.annotations.SerializedName
 
-data class ProfessionalRoleDto(
+data class ScheduleDto(
     @SerializedName("id")
     val id: String,
     @SerializedName("name")
