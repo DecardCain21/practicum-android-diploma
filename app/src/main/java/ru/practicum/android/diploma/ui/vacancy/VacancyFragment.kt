@@ -36,6 +36,10 @@ class VacancyFragment : BindingFragment<FragmentVacancyBinding>() {
         viewModel.getDetails(requireArguments().getString(VACANCY_DETAILS) ?: "")
         binding.tbHeader.setNavigationOnClickListener { findNavController().popBackStack() }
         viewModel.state.observe(viewLifecycleOwner) { render(it) }
+
+        binding.ivSharing.setOnClickListener {
+            viewModel.shareVacancyURL()
+        }
     }
 
     private fun render(state: VacancyDetailsState) {

@@ -8,6 +8,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.practicum.android.diploma.data.ExternalNavigatorImpl
 import ru.practicum.android.diploma.data.db.AppDatabase
 import ru.practicum.android.diploma.data.db.convertor.FavoriteVacancyDbConvertor
 import ru.practicum.android.diploma.data.mapper.VacancyDetailsMapper
@@ -16,6 +17,7 @@ import ru.practicum.android.diploma.data.network.AuthorizationInterceptor
 import ru.practicum.android.diploma.data.network.HeadHunterApiService
 import ru.practicum.android.diploma.data.network.NetworkClient
 import ru.practicum.android.diploma.data.network.RetrofitNetworkClient
+import ru.practicum.android.diploma.domain.sharing.ExternalNavigator
 
 private const val HEAD_HUNTER_BASE_URL = "https://api.hh.ru"
 
@@ -59,5 +61,9 @@ val dataModule = module {
 
     single<NetworkClient> {
         RetrofitNetworkClient(get())
+    }
+
+    single<ExternalNavigator> {
+        ExternalNavigatorImpl(androidContext())
     }
 }

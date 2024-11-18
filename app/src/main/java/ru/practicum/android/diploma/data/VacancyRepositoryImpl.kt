@@ -14,7 +14,6 @@ import ru.practicum.android.diploma.data.network.RetrofitNetworkClient.Companion
 import ru.practicum.android.diploma.data.network.RetrofitNetworkClient.Companion.NOT_FOUND_CODE
 import ru.practicum.android.diploma.data.network.RetrofitNetworkClient.Companion.SUCCESS_CODE
 import ru.practicum.android.diploma.domain.api.VacancyRepository
-import ru.practicum.android.diploma.domain.models.Vacancy
 import ru.practicum.android.diploma.domain.models.VacancyDetails
 import ru.practicum.android.diploma.domain.models.VacancySearchResult
 import ru.practicum.android.diploma.util.Resource

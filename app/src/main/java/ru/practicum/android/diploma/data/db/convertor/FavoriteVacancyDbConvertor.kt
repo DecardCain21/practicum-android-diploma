@@ -19,7 +19,8 @@ class FavoriteVacancyDbConvertor {
         employerName = model.employmentName,
         description = model.description,
         descriptionSkills = model.descriptionSkills,
-        timestamp = System.currentTimeMillis()
+        timestamp = System.currentTimeMillis(),
+        url = model.url
     )
 
     fun map(entity: FavoriteVacancyEntity) = VacancyDetails(
@@ -35,6 +36,7 @@ class FavoriteVacancyDbConvertor {
         employerName = entity.employerName,
         schedule = entity.schedule,
         description = entity.description,
-        descriptionSkills = entity.descriptionSkills
+        descriptionSkills = entity.descriptionSkills,
+        url = entity.url
     )
 }

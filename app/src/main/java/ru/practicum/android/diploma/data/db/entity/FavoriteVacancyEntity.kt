@@ -19,5 +19,6 @@ data class FavoriteVacancyEntity(
     val schedule: String,
     val description: String,
     val descriptionSkills: String,
-    val timestamp: Long
+    val timestamp: Long,
+    val url: String
 )

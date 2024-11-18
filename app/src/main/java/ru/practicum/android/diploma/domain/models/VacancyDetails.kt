@@ -13,5 +13,6 @@ data class VacancyDetails(
     val employmentName: String,
     val schedule: String,
     val description: String,
-    val descriptionSkills: String
+    val descriptionSkills: String,
+    val url: String
 )

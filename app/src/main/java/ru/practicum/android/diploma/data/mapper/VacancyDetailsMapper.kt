@@ -19,7 +19,8 @@ class VacancyDetailsMapper {
         employmentName = dto.employment?.name ?: EMPTY_PARAM_VALUE,
         schedule = dto.schedule.name ?: EMPTY_PARAM_VALUE,
         description = dto.description ?: EMPTY_PARAM_VALUE,
-        descriptionSkills = skillsFormat(dto.keySkills)
+        descriptionSkills = skillsFormat(dto.keySkills),
+        url = dto.alternateUrl ?: EMPTY_PARAM_VALUE
     )
 
     private fun skillsFormat(list: List<KeySkillDto>): String {
