@@ -12,41 +12,41 @@ import ru.practicum.android.diploma.domain.models.Region
 class FilterMapper {
 
     fun map(dto: FilterDto) = Filter(
-        area = dto.area?.let { map(it) },
-        region = dto.subArea?.let { map(it) },
-        industry = dto.industry?.let { map(it) },
+        area = dto.area?.let { convertToCountry(it) },
+        region = dto.subArea?.let { convertToRegion(it) },
+        industry = dto.industry?.let { convertToIndustry(it) },
         salary = dto.salary,
         withoutSalaryButton = dto.withoutSalaryButton
     )
 
     fun map(filter: Filter) = FilterDto(
-        area = filter.area?.let { map(it) },
-        subArea = filter.region?.let { map(it, it.id) },
-        industry = filter.industry?.let { map(it) },
+        area = filter.area?.let { convertToArea(it) },
+        subArea = filter.region?.let { convertToSubAreaDto(it, it.id) },
+        industry = filter.industry?.let { convertToIndustryDto(it) },
         salary = filter.salary,
         withoutSalaryButton = filter.withoutSalaryButton
     )
 
-    private fun map(dto: AreaDto): Country {
-        val regions = dto.areas.map { map(it) }
+    private fun convertToCountry(dto: AreaDto): Country {
+        val regions = dto.areas.map { convertToRegion(it) }
         return Country(id = dto.id, name = dto.name, regions = regions)
     }
 
-    private fun map(country: Country): AreaDto {
-        val areas = country.regions.map { map(it, country.id) }
+    private fun convertToArea(country: Country): AreaDto {
+        val areas = country.regions.map { convertToSubAreaDto(it, country.id) }
         return AreaDto(id = country.id, name = country.name, areas = areas)
     }
 
-    private fun map(dto: SubAreaDto) = Region(id = dto.id, name = dto.name)
+    private fun convertToRegion(dto: SubAreaDto) = Region(id = dto.id, name = dto.name)
 
-    private fun map(region: Region, parentId: String) = SubAreaDto(
+    private fun convertToSubAreaDto(region: Region, parentId: String) = SubAreaDto(
         id = region.id,
         name = region.name,
         parentId = parentId
     )
 
-    private fun map(dto: IndustryDto) = Industry(id = dto.id, name = dto.name)
+    private fun convertToIndustry(dto: IndustryDto) = Industry(id = dto.id, name = dto.name)
 
-    private fun map(industry: Industry) = IndustryDto(id = industry.id, name = industry.name)
+    private fun convertToIndustryDto(industry: Industry) = IndustryDto(id = industry.id, name = industry.name)
 
 }

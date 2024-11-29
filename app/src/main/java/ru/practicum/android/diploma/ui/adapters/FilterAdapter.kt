@@ -47,7 +47,13 @@ class FilterAdapter : RecyclerView.Adapter<ViewHolder>() {
         when (holder) {
             is CountryViewHolder -> holder.bind(item.data as Country)
             is RegionViewHolder -> holder.bind(item.data as Region)
-            is IndustryViewHolder -> holder.bind(item.data as Industry)
+            is IndustryViewHolder -> {
+                holder.bind(item.data as Industry)
+                holder.binding.rbIndustryButton.setOnCheckedChangeListener { _, checkedId ->
+                    saveFilterListener?.onItemClicked(item)
+                }
+            }
+
             else -> throw IllegalArgumentException("Unknown ViewHolder for position $position")
         }
 

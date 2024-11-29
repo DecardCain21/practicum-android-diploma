@@ -49,10 +49,9 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
 
     private fun render(state: CountryState) {
         when (state) {
-            is Data -> showContent(state.countries)
-            is Empty -> showEmpty()
-            is Error -> showError()
-            is Loading -> showLoading()
+            is CountryState.Data -> filterAdapter.updateCountries(state.countries)
+            is CountryState.Loading -> {}
+            else -> throw UnsupportedOperationException("Будет позже")
         }
     }
 

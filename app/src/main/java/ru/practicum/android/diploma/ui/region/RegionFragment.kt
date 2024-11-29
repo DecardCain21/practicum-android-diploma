@@ -55,10 +55,9 @@ class RegionFragment : BindingFragment<FragmentRegionBinding>() {
 
     private fun render(state: RegionState) {
         when (state.data) {
-            is Data -> showContent(state.data.regions)
-            is Empty -> showEmpty()
-            is Error -> showError()
-            is Loading -> showLoading()
+            is RegionState.Data.Data -> filterAdapter.updateRegions(state.data.regions)
+            is RegionState.Data.Loading -> { }
+            else -> throw UnsupportedOperationException("Будет позже")
         }
     }
 
