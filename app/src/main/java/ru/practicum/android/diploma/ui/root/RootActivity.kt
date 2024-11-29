@@ -26,13 +26,15 @@ class RootActivity : AppCompatActivity() {
             val isVisible = when (destination.id) {
                 R.id.filters_fragment,
                 R.id.vacancy_fragment,
-                R.id.industryFragment -> false
+                R.id.industry_fragment,
+                R.id.location_fragment,
+                R.id.country_fragment,
+                R.id.region_fragment -> false
 
                 else -> true
             }
             binding.bottomNavigationView.isVisible = isVisible
         }
-
         // Пример использования access token для HeadHunter API
         // networkRequestExample(accessToken = BuildConfig.HH_ACCESS_TOKEN)
     }
