@@ -124,6 +124,7 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
             ivLookingForPlaceholder.invisible()
             placeholder.visible()
             tvCountVacancies.visible()
+            vacanciesAdapter.clear()
             tvCountVacancies.text = resources.getText(R.string.no_such_vacancies)
             imageAndTextHelper.setImageAndText(
                 requireContext(),
@@ -163,7 +164,7 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         }
     }
 
-    private fun showContent(vacanciesList: VacancyState.VacanciesList.Data) {
+    private fun showContent(vacanciesList: Data) {
         with(binding) {
             rvVacancies.visible()
             pbSearch.invisible()
