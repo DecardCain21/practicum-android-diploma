@@ -52,7 +52,7 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
 
     private fun render(state: FiltersState) {
         when (state) {
-            is FiltersState.Empty -> {}
+            is FiltersState.Empty -> { }
             is FiltersState.Data -> showContent(state.filters)
         }
     }

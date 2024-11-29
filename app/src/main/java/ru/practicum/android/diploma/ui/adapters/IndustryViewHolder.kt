@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.practicum.android.diploma.databinding.IndustryItemBinding
 import ru.practicum.android.diploma.domain.models.Industry
 
-class IndustryViewHolder(private val binding: IndustryItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class IndustryViewHolder(val binding: IndustryItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(industry: Industry) {
         binding.rbIndustryButton.text = industry.name
     }
