@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_filters_fragment_to_industryFragment"
             app:destination="@id/industryFragment" />
+        <action
+            android:id="@+id/action_filters_fragment_to_search_fragment"
+            app:destination="@id/search_fragment" />
     </fragment>
     <fragment
         android:id="@+id/vacancy_fragment"
@@ -54,11 +57,11 @@
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" >
         <action
-            android:id="@+id/action_location_fragment_to_countryFragment"
-            app:destination="@id/countryFragment" />
-        <action
             android:id="@+id/action_location_fragment_to_regionFragment"
             app:destination="@id/regionFragment" />
+        <action
+            android:id="@+id/action_location_fragment_to_countryFragment"
+            app:destination="@id/countryFragment" />
     </fragment>
     <fragment
         android:id="@+id/industryFragment"
@@ -66,13 +69,14 @@
         android:label="fragment_industry"
         tools:layout="@layout/fragment_industry" />
     <fragment
-        android:id="@+id/countryFragment"
-        android:name="ru.practicum.android.diploma.ui.country.CountryFragment"
-        android:label="CountryFragment" />
-    <fragment
         android:id="@+id/regionFragment"
         android:name="ru.practicum.android.diploma.ui.region.RegionFragment"
         android:label="fragment_region"
         tools:layout="@layout/fragment_region" >
     </fragment>
+    <fragment
+        android:id="@+id/countryFragment"
+        android:name="ru.practicum.android.diploma.ui.country.CountryFragment"
+        android:label="fragment_country"
+        tools:layout="@layout/fragment_country" />
 </navigation>

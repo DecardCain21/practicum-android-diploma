@@ -1,7 +1,7 @@
 package ru.practicum.android.diploma.domain.models
 
 data class Filter(
-    val area: Country?,
+    val country: Country?,
     val region: Region?,
     val industry: Industry?,
     val salary: Int?,
@@ -10,16 +10,16 @@ data class Filter(
 
     val location: String?
         get() {
-            return if (area == null) {
+            return if (country == null) {
                 region?.name
             } else {
-                region?.let { area.name + ", " + it.name } ?: area.name
+                region?.let { country.name + ", " + it.name } ?: country.name
             }
         }
 
     companion object {
         val empty = Filter(
-            area = null,
+            country = null,
             region = null,
             industry = null,
             salary = null,

@@ -12,7 +12,7 @@ import ru.practicum.android.diploma.domain.models.Region
 class FilterMapper {
 
     fun map(dto: FilterDto) = Filter(
-        area = dto.area?.let { map(it) },
+        country = dto.area?.let { map(it) },
         region = dto.subArea?.let { map(it) },
         industry = dto.industry?.let { map(it) },
         salary = dto.salary,
@@ -20,7 +20,7 @@ class FilterMapper {
     )
 
     fun map(filter: Filter) = FilterDto(
-        area = filter.area?.let { map(it) },
+        area = filter.country?.let { map(it) },
         subArea = filter.region?.let { map(it, it.id) },
         industry = filter.industry?.let { map(it) },
         salary = filter.salary,

@@ -5,7 +5,7 @@ import ru.practicum.android.diploma.domain.models.Filter
 interface FilterRepository {
 
     fun getFilters(): Filter
-    fun setFilters(value: Filter)
+    fun setFilters(items: Filter)
     fun clearFilters()
 
 }

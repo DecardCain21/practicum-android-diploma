@@ -33,7 +33,7 @@ class CountryViewModel(
     }
 
     fun setFilter(country: Country) {
-        val filters = getFiltersUseCase.execute().copy(area = country)
+        val filters = getFiltersUseCase.execute().copy(country = country)
         setFiltersUseCase.execute(filters)
     }
 }

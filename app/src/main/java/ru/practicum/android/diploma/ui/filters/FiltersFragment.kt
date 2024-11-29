@@ -107,6 +107,7 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
                 salary = tiSalaryInputText.text.toIntOrNull(),
                 withoutSalaryButton = cbWithoutSalaryButton.isChecked
             )
+            findNavController().navigate(R.id.action_filters_fragment_to_search_fragment)
         }
     }
 

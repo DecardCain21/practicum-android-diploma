@@ -66,12 +66,21 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         configureRecycler()
         configureSearchInput()
         configureFilterButton()
+        checkFilterIcon()
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.collect { state ->
                 render(state)
             }
         }
+    }
+
+    private fun checkFilterIcon() {
+        val resId = when (viewModel.isFilterApplied()) {
+            false -> R.drawable.ic_filter_default
+            true -> R.drawable.ic_filter_applied
+        }
+        binding.ivFilter.setImageResource(resId)
     }
 
     private fun render(state: VacancyState) {
@@ -163,7 +172,7 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         }
     }
 
-    private fun showContent(vacanciesList: VacancyState.VacanciesList.Data) {
+    private fun showContent(vacanciesList: Data) {
         with(binding) {
             rvVacancies.visible()
             pbSearch.invisible()
@@ -219,13 +228,11 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         binding.pbSearch.visibility = if (getConnected()) View.VISIBLE else View.INVISIBLE
     }
 
-    private fun configureFilterButton() =
-        binding.tbHeader.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.action_filter -> findNavController().navigate(R.id.action_searchFragment_to_filtersFragment)
-            }
-            true
+    private fun configureFilterButton() {
+        binding.ivFilter.setOnClickListener {
+            findNavController().navigate(R.id.action_searchFragment_to_filtersFragment)
         }
+    }
 
     private fun convertToFoundVacancies(amount: Int): String {
         val vacanciesWord = resources.getString(EndingConvertor.vacancies(amount))

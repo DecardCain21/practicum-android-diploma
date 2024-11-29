@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import ru.practicum.android.diploma.databinding.CountryItemBinding
+import ru.practicum.android.diploma.databinding.AreaItemBinding
 import ru.practicum.android.diploma.databinding.IndustryItemBinding
 import ru.practicum.android.diploma.databinding.RegionItemBinding
 import ru.practicum.android.diploma.domain.models.Country
@@ -20,8 +20,8 @@ class FilterAdapter : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            ItemFilter.TYPE_AREA -> CountryViewHolder(
-                binding = CountryItemBinding.inflate(layoutInflater, parent, false)
+            ItemFilter.TYPE_COUNTRY -> CountryViewHolder(
+                binding = AreaItemBinding.inflate(layoutInflater, parent, false)
             )
 
             ItemFilter.TYPE_REGION -> RegionViewHolder(
@@ -55,7 +55,7 @@ class FilterAdapter : RecyclerView.Adapter<ViewHolder>() {
     }
 
     fun updateCountries(data: List<Country>) {
-        updateItems(convertToItemFilter(data, ItemFilter.TYPE_AREA))
+        updateItems(convertToItemFilter(data, ItemFilter.TYPE_COUNTRY))
     }
 
     fun updateRegions(data: List<Region>) {

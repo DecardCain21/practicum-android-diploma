@@ -19,7 +19,7 @@ class LocationViewModel(
     fun getFilters() {
         val filters = getFiltersUseCase.execute()
         _state.value = LocationState(
-            country = filters.area?.name,
+            country = filters.country?.name,
             region = filters.region?.name
         )
     }

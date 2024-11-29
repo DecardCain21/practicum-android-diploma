@@ -80,10 +80,10 @@ class RegionViewModel(
 
     private fun parseRegions(countries: List<Country>): List<Region> {
         val filter = getFiltersUseCase.execute()
-        val regions = if (filter.area == null) {
+        val regions = if (filter.country == null) {
             countries.flatMap { it.regions }
         } else {
-            filter.area.regions
+            filter.country.regions
         }
         return regions
     }

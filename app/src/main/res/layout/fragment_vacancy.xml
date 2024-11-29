@@ -94,10 +94,10 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/light_grey"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_employer_city"
                 app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
                 app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
                 app:layout_constraintTop_toTopOf="@id/tv_vacancy_employer_name"
-                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_employer_city"
                 app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -105,9 +105,9 @@
                 android:layout_width="@dimen/mark_48dp"
                 android:layout_height="@dimen/mark_48dp"
                 android:layout_margin="@dimen/mark_16dp"
+                app:layout_constraintBottom_toBottomOf="@id/siv_vacancy_logo_frame"
                 app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
                 app:layout_constraintTop_toTopOf="@id/siv_vacancy_logo_frame"
-                app:layout_constraintBottom_toBottomOf="@id/siv_vacancy_logo_frame"
                 app:shapeAppearanceOverlay="@style/RoundedImageView"
                 tools:src="@tools:sample/avatars" />
 
@@ -117,8 +117,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/mark_8dp"
-                android:layout_marginEnd="@dimen/mark_16dp"
                 android:layout_marginTop="@dimen/mark_40dp"
+                android:layout_marginEnd="@dimen/mark_16dp"
                 android:paddingTop="@dimen/mark_16dp"
                 app:layout_constraintEnd_toEndOf="@id/siv_vacancy_logo_frame"
                 app:layout_constraintStart_toEndOf="@id/siv_vacancy_logo"

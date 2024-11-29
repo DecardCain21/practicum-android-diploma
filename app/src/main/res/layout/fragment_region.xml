@@ -74,7 +74,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/et_search"
-        tools:listitem="@layout/country_item" />
+        tools:listitem="@layout/area_item" />
 
     <LinearLayout
         android:id="@+id/placeholder"

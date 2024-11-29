@@ -23,15 +23,23 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_header"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/mark_8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_filter"
         app:title="@string/search_vacancies"
         app:titleTextAppearance="@style/ToolbarTextStyle" />
+
+    <ImageView
+        android:id="@+id/iv_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/mark_12dp"
+        android:layout_marginEnd="@dimen/mark_8dp"
+        android:src="@drawable/ic_filter_default"
+        app:layout_constraintBottom_toBottomOf="@id/tb_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tb_header" />
 
     <EditText
         android:id="@+id/et_search"
