@@ -52,5 +52,6 @@
     <string name="region">Регион</string>
     <string name="job_location_selection_title">Выбор места работы</string>
     <string name="country_selection_title">Выбор страны</string>
+    <string name="other_areas">Другие регионы</string>
 
 </resources>
