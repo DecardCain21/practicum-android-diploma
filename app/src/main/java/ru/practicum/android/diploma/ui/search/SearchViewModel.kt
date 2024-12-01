@@ -11,14 +11,12 @@ import ru.practicum.android.diploma.domain.models.Filter
 import ru.practicum.android.diploma.domain.state.VacancyState
 import ru.practicum.android.diploma.domain.state.VacancyState.Input
 import ru.practicum.android.diploma.domain.state.VacancyState.VacanciesList
-import ru.practicum.android.diploma.domain.usecase.filters.GetFiltersUseCase
 import ru.practicum.android.diploma.domain.usecase.filters.GetSearchFiltersUseCase
 import ru.practicum.android.diploma.domain.usecase.vacancy.GetVacanciesUseCase
 import ru.practicum.android.diploma.util.debounce
 
 class SearchViewModel(
     private val getVacanciesUseCase: GetVacanciesUseCase,
-    private val getFiltersUseCase: GetFiltersUseCase,
     private val getSearchFiltersUseCase: GetSearchFiltersUseCase
 ) : ViewModel() {
 
@@ -47,7 +45,7 @@ class SearchViewModel(
         }
     }
 
-    private fun getFilter() = getFiltersUseCase.execute()
+    private fun getFilter(): Filter = getSearchFiltersUseCase.execute()
 
     fun isFilterApplied() = getFilter() != Filter.empty
 
