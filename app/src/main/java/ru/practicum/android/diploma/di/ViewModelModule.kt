@@ -16,7 +16,6 @@ val viewModelModule = module {
     viewModel {
         SearchViewModel(
             getVacanciesUseCase = get(),
-            getFiltersUseCase = get(),
             getSearchFiltersUseCase = get()
         )
     }
