@@ -20,6 +20,7 @@ import ru.practicum.android.diploma.domain.state.FiltersState
 import ru.practicum.android.diploma.domain.state.FiltersState.Data.Payload
 import ru.practicum.android.diploma.domain.state.FiltersState.Editor.Changed
 import ru.practicum.android.diploma.util.BindingFragment
+import ru.practicum.android.diploma.util.toIntOrNull
 
 class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
 
@@ -117,11 +118,14 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
         tvResetButton.setOnClickListener { viewModel.clearFilters() }
     }
 
-    private fun showContent(state: Filter) {
-        setViewState(binding.tlPlaceWorkLayout, state.location?.description)
-        setViewState(binding.tlBranchLayout, state.industry?.name)
-        binding.tiSalaryInputText.setText(state.salary?.toString() ?: "")
-        binding.cbWithoutSalaryButton.isChecked = state.withoutSalaryButton
+    private fun showContent(state: Filter) = with(binding) {
+        setViewState(tlPlaceWorkLayout, state.location?.description)
+        setViewState(tlBranchLayout, state.industry?.name)
+        if (tiSalaryInputText.text.toIntOrNull() != state.salary) {
+            tiSalaryInputText.setText(state.salary?.toString() ?: "")
+            tiSalaryInputText.requestFocus()
+        }
+        cbWithoutSalaryButton.isChecked = state.withoutSalaryButton
     }
 
     private fun setViewState(layout: TextInputLayout, content: String?) {
