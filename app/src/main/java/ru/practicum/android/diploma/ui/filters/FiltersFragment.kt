@@ -48,7 +48,7 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
             viewModel.state.collect { state -> render(state) }
         }
 
-        viewModel.getFilters()
+        // viewModel.getFilters()
     }
 
     private fun render(state: FiltersState) {
@@ -63,7 +63,10 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
     }
 
     private fun configureBackButton() =
-        binding.tbHeader.setNavigationOnClickListener { findNavController().popBackStack() }
+        binding.tbHeader.setNavigationOnClickListener {
+            viewModel.clearTmpFilters()
+            findNavController().popBackStack()
+        }
 
     private fun configureLocationWorkButton() = with(binding) {
         tlPlaceWorkLayout.editText?.setOnClickListener {

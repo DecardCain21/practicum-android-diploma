@@ -27,6 +27,9 @@ class FiltersViewModel(
     private val getSearchFiltersUseCase: GetSearchFiltersUseCase,
     private val setSearchFiltersUseCase: SetSearchFiltersUseCase
 ) : ViewModel() {
+    init {
+        setTmpFiltersUseCase.execute(getSearchFiltersUseCase.execute())
+    }
 
     private var tmpFilters: Filter = getSearchFiltersUseCase.execute()
 
@@ -54,6 +57,10 @@ class FiltersViewModel(
     fun saveFilters() {
         val tmpFilters = getTmpFiltersUseCase.execute()
         setSearchFiltersUseCase.execute(tmpFilters)
+    }
+
+    fun clearTmpFilters() {
+        clearTmpFiltersUseCase.execute()
     }
 
     fun clearFilters() {
