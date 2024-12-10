@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/white_to_black"
+    tools:context=".ui.filters.FiltersFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/mark_16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/mark_16dp" />
+
+    <Toolbar
+        android:id="@+id/tb_header"
+        style="@style/ToolbarHeaderStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/ic_arrow_back"
+        android:title="@string/filters_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_place_work_layout"
+        style="@style/SelectionInputTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mark_60dp"
+        android:layout_marginTop="@dimen/mark_36dp"
+        android:hint="@string/place_work"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/mark_2dp"
+        app:endIconDrawable="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/tb_header">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_place_work"
+            style="@style/SelectionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/mark_24dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_branch_layout"
+        style="@style/SelectionInputTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mark_60dp"
+        android:hint="@string/branch"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/mark_2dp"
+        app:endIconDrawable="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/tl_place_work_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_branch"
+            style="@style/SelectionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/mark_24dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_salary_layout"
+        style="@style/SalaryInputTextLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mark_52dp"
+        android:layout_marginTop="@dimen/mark_24dp"
+        android:background="@drawable/bg_search_edittext"
+        android:hint="@string/expected_salary"
+        android:orientation="vertical"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:cursorColor="@color/blue"
+        app:endIconDrawable="@drawable/ic_close"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/black"
+        app:expandedHintEnabled="false"
+        app:layout_constraintEnd_toStartOf="@+id/end_guideline_16dp"
+        app:layout_constraintStart_toStartOf="@+id/start_guideline_16dp"
+        app:layout_constraintTop_toBottomOf="@id/tl_branch_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_salaryInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/noColor"
+            android:hint="@string/enter_amount"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:paddingTop="@dimen/mark_24dp"
+            android:textColor="@color/black"
+            android:textColorHint="?attr/dark_grey_to_white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_not_show_without_salary"
+        style="@style/FilterSettingsSelectionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mark_44dp"
+        android:text="@string/not_show_without_salary"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+        app:layout_constraintTop_toBottomOf="@id/tl_salary_layout" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/cb_without_salary_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@id/tv_not_show_without_salary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_not_show_without_salary" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cb_apply_button"
+        style="@style/SelectionApplyButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mark_60dp"
+        android:layout_marginBottom="@dimen/mark_92dp"
+        android:background="@drawable/blue_shape"
+        android:text="@string/apply"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp" />
+
+    <TextView
+        android:id="@+id/tv_reset_button"
+        style="@style/SelectionResetButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mark_22dp"
+        android:paddingVertical="@dimen/mark_22dp"
+        android:textAlignment="center"
+        android:text="@string/reset"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

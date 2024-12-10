@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contributors">
+        <item>Руслан Атаев</item>
+        <item>Никита Тренин</item>
+        <item>Марат Гудожников</item>
+        <item>Александр Киреев</item>
+        <item>Марсель Шаймарданов</item>
+    </string-array>
+</resources>

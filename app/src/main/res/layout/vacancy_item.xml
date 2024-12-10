@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="@dimen/mark_8dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/mark_8dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/mark_8dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/vacancy_logo"
+        android:layout_width="@dimen/mark_48dp"
+        android:layout_height="@dimen/mark_48dp"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImageView"
+        app:strokeColor="@color/light_grey"
+        app:strokeWidth="@dimen/mark_1dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/vacancy_title"
+        style="@style/TextStyleMedium22"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mark_12dp"
+        app:layout_constraintEnd_toStartOf="@id/right_guideline"
+        app:layout_constraintStart_toEndOf="@id/vacancy_logo"
+        app:layout_constraintTop_toTopOf="@id/vacancy_logo"
+        tools:text="Разработчик на С++ в команду внутренних сервисов, Москва" />
+
+    <TextView
+        android:id="@+id/vacancy_employer"
+        style="@style/TextStyleRegular16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/vacancy_title"
+        app:layout_constraintTop_toBottomOf="@id/vacancy_title"
+        tools:text="Авто.ру" />
+
+    <TextView
+        android:id="@+id/vacancy_salary"
+        style="@style/TextStyleRegular16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/vacancy_employer"
+        app:layout_constraintTop_toBottomOf="@id/vacancy_employer"
+        tools:text="от 40 000 до 80 000 ₽" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

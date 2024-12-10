@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/white_to_black"
+    tools:context=".ui.search.SearchFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/mark_16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/mark_16dp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/search_vacancies"
+        app:titleTextAppearance="@style/ToolbarTextStyle" />
+
+    <ImageView
+        android:id="@+id/iv_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/mark_12dp"
+        android:layout_marginEnd="@dimen/mark_8dp"
+        android:src="@drawable/ic_filter_default"
+        app:layout_constraintBottom_toBottomOf="@id/tb_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tb_header" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mark_8dp"
+        android:background="@drawable/bg_search_edittext"
+        android:elevation="@dimen/mark_1dp"
+        android:hint="@string/search_hint"
+        android:inputType="text"
+        android:singleLine="true"
+        android:paddingEnd="@dimen/mark_48dp"
+        android:padding="@dimen/mark_20dp"
+        android:textColor="@color/black"
+        android:textColorHint="?attr/dark_grey_to_white"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+        app:layout_constraintTop_toBottomOf="@id/tb_header" />
+
+    <ImageView
+        android:id="@+id/iv_edit_text_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/mark_1dp"
+        android:paddingHorizontal="@dimen/mark_20dp"
+        android:paddingVertical="@dimen/mark_18dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintBottom_toBottomOf="@id/et_search"
+        app:layout_constraintEnd_toEndOf="@id/et_search"
+        app:layout_constraintTop_toTopOf="@id/et_search" />
+
+    <TextView
+        android:id="@+id/tv_count_vacancies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mark_12dp"
+        android:background="@drawable/blue_shape"
+        android:elevation="@dimen/mark_1dp"
+        android:fontFamily="@font/ys_display_regular"
+        android:paddingHorizontal="@dimen/mark_12dp"
+        android:paddingVertical="@dimen/mark_4dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_mark_16sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_search"
+        tools:text="Таких вакансий нет" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_vacancies"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/mark_30dp"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/mark_76dp"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/pb_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/et_search"
+        tools:itemCount="3"
+        tools:listitem="@layout/vacancy_item" />
+
+    <ImageView
+        android:id="@+id/iv_looking_for_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/placeholder_vacancy_search_looking_for"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+    <include
+        android:id="@+id/placeholder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginHorizontal="@dimen/mark_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_header"
+        layout="@layout/placeholder_layout">
+    </include>
+
+    <ProgressBar
+        android:id="@+id/pb_search"
+        android:layout_width="@dimen/mark_48dp"
+        android:layout_height="@dimen/mark_48dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="@dimen/mark_16dp"
+        android:indeterminateTint="@color/blue"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_vacancies" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

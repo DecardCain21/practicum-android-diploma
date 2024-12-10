@@ -1,15 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.PracticumAndroidDiploma" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.PracticumAndroidDiploma" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/blue</item>
-        <item name="colorSecondary">@color/grey</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="colorSecondary">@color/light_grey</item>
+        <item name="android:statusBarColor">@color/black</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/text_mark_16sp</item>
         <item name="android:fontFamily">@font/ys_display_regular</item>
         <item name="white_to_black">@color/white</item>
         <item name="black_to_white">@color/black</item>
-        <item name="grey_to_light_grey">@color/grey</item>
-        <item name="grey_to_dark_grey">@color/grey</item>
+        <item name="dark_grey_to_black">@color/dark_grey</item>
+        <item name="black_to_dark_grey">@color/black</item>
+        <item name="light_grey_to_dark_grey">@color/light_grey</item>
+        <item name="dark_grey_to_white">@color/dark_grey</item>
+        <item name="white_to_dark_grey">@color/white</item>
     </style>
 </resources>

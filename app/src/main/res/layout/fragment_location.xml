@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/white_to_black"
+    tools:context=".ui.location.LocationFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/mark_16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guideline_16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/mark_16dp" />
+
+    <Toolbar
+        android:id="@+id/tb_header"
+        style="@style/ToolbarHeaderStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/ic_arrow_back"
+        android:title="@string/job_location_selection_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_country"
+        style="@style/SelectionInputTextLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mark_60dp"
+        android:layout_marginTop="@dimen/mark_16dp"
+        android:hint="@string/country"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline_16dp"
+        app:endIconDrawable="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/tb_header">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/SelectionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/mark_24dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_region"
+        style="@style/SelectionInputTextLayout"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mark_60dp"
+        android:hint="@string/region"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp"
+        app:layout_constraintEnd_toEndOf="@id/end_guideline_16dp"
+        app:endIconDrawable="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toBottomOf="@id/ti_country">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/SelectionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/mark_24dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cb_apply_button"
+        style="@style/SelectionApplyButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mark_60dp"
+        android:layout_marginBottom="@dimen/mark_24dp"
+        android:background="@drawable/blue_shape"
+        android:stateListAnimator="@null"
+        android:text="@string/select"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/end_guideline_16dp"
+        app:layout_constraintStart_toStartOf="@id/start_guideline_16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

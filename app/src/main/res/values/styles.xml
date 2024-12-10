@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PlaceholderTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="TitleTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_32sp</item>
+        <item name="fontFamily">@font/ys_display_bold</item>
+    </style>
+
+    <style name="SubtitleTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="BottomIconStyle">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@drawable/bottom_nav_selector_mode</item>
+        <item name="itemTextColor">@drawable/bottom_nav_selector_mode</item>
+        <item name="itemRippleColor">@color/blue</item>
+    </style>
+
+    <style name="ToolbarHeaderStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetEnd">@dimen/mark_8dp</item>
+        <item name="android:contentInsetStartWithNavigation">0dp</item>
+        <item name="android:titleMarginStart">0dp</item>
+        <item name="android:titleTextAppearance">@style/ToolbarTextStyle</item>
+    </style>
+
+    <style name="ToolbarTextStyle" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="TextStyleMedium22">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="TextStyleRegular16">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="TextStyleRegular12">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_12sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/mark_12dp</item>
+    </style>
+
+    <style name="VacancyDetailNameTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_32sp</item>
+        <item name="android:fontFamily">@font/ys_display_bold</item>
+    </style>
+
+    <style name="VacancyDetailSalaryTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="VacancyDetailEmployerNameTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="VacancyDetailEmployerCityTextStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="VacancyDetailSubtitleTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="VacancyDetailDescriptionTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <style name="VacancyDetailTitleDescriptionTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="FilterSettingsSelectionTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="fontFamily">@font/ys_display_regular</item>
+        <item name="tint">?attr/black_to_white</item>
+    </style>
+
+    <style name="SalaryInputTextLayout">
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+        <item name="android:textColorHint">@color/text_color_hint</item>
+    </style>
+
+    <style name="SelectionInputTextLayout" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">@color/dark_grey</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="endIconMode">custom</item>
+        <item name="endIconTint">?attr/black_to_white</item>
+    </style>
+
+    <style name="SelectionInputText">
+        <item name="android:clickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:background">@color/noColor</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:editable">false</item>
+    </style>
+
+    <style name="SelectionApplyButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="SelectionResetButton">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="IndustryItemTextStyle">
+        <item name="android:textColor">?attr/black_to_white</item>
+        <item name="android:textSize">@dimen/text_mark_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+</resources>
