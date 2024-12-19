@@ -15,7 +15,6 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.practicum.android.diploma.R
-import ru.practicum.android.diploma.common.AppConstants.EMPTY_PARAM_VALUE
 import ru.practicum.android.diploma.databinding.FragmentFilterBinding
 import ru.practicum.android.diploma.domain.models.Filter
 import ru.practicum.android.diploma.domain.state.FiltersState
@@ -74,7 +73,7 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
                 true -> findNavController().navigate(R.id.action_filters_fragment_to_location_fragment)
                 else -> {
                     viewModel.clearLocation()
-                    setViewState(tlPlaceWorkLayout, EMPTY_PARAM_VALUE)
+                    setViewState(tlPlaceWorkLayout, "")
                 }
             }
         }
@@ -89,7 +88,7 @@ class FiltersFragment : BindingFragment<FragmentFilterBinding>() {
                 true -> findNavController().navigate(R.id.action_filters_fragment_to_industryFragment)
                 else -> {
                     viewModel.clearIndustry()
-                    setViewState(tlBranchLayout, EMPTY_PARAM_VALUE)
+                    setViewState(tlBranchLayout, "")
                 }
             }
         }

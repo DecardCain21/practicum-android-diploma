@@ -6,7 +6,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.practicum.android.diploma.common.AppConstants.SEARCH_DEBOUNCE_DELAY
 import ru.practicum.android.diploma.data.network.RetrofitNetworkClient.Companion.FAILED_INTERNET_CONNECTION_CODE
 import ru.practicum.android.diploma.domain.models.Industry
 import ru.practicum.android.diploma.domain.state.IndustryState
@@ -33,7 +32,7 @@ class IndustryViewModel(
         get() = _state
 
     val searchDebounce: (String) -> Unit = debounce(
-        delayMillis = SEARCH_DEBOUNCE_DELAY,
+        delayMillis = 2_000L,
         coroutineScope = viewModelScope,
         useLastParam = true
     ) { changedText -> getIndustries(changedText) }
@@ -41,6 +40,7 @@ class IndustryViewModel(
     fun getIndustries(sortExpression: String = "") = viewModelScope.launch(Dispatchers.Main) {
         val filters = getTmpFiltersUseCase.execute()
         val response = getIndustriesUseCase.execute()
+        // как проверить, к примеру, тут
         val dataState = when {
             response.first?.isEmpty() == true -> Industries.Empty
             response.second?.isNotEmpty() == true -> {

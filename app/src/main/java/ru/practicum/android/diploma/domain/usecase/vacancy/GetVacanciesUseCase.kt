@@ -11,9 +11,10 @@ class GetVacanciesUseCase(
 ) {
 
     suspend fun execute(expression: String, page: Int, filter: Filter) = withContext(Dispatchers.IO) {
-        when (val result = repository.searchVacancies(expression = expression, page = page, filter = filter)) {
+        repository.searchVacancies(expression = expression, page = page, filter = filter)
+        /*when (val result = repository.searchVacancies(expression = expression, page = page, filter = filter)) {
             is Resource.Success -> Pair(result.data, null)
             is Resource.Error -> Pair(null, result.message)
-        }
+        }*/
     }
 }

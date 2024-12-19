@@ -12,10 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.practicum.android.diploma.R
-import ru.practicum.android.diploma.common.AppConstants.CLICK_DEBOUNCE_DELAY
 import ru.practicum.android.diploma.common.Source.SEARCH
 import ru.practicum.android.diploma.databinding.FragmentSearchBinding
 import ru.practicum.android.diploma.domain.state.VacancyState
@@ -28,7 +26,6 @@ import ru.practicum.android.diploma.domain.state.VacancyState.VacanciesList.Star
 import ru.practicum.android.diploma.ui.vacancy.VacancyFragment
 import ru.practicum.android.diploma.util.BindingFragment
 import ru.practicum.android.diploma.util.EndingConvertor
-import ru.practicum.android.diploma.util.ImageAndTextHelper
 import ru.practicum.android.diploma.util.debounce
 import ru.practicum.android.diploma.util.getConnected
 import ru.practicum.android.diploma.util.invisible
@@ -37,7 +34,6 @@ import ru.practicum.android.diploma.util.visible
 class SearchFragment : BindingFragment<FragmentSearchBinding>() {
 
     private val viewModel: SearchViewModel by viewModel()
-    private val imageAndTextHelper: ImageAndTextHelper by inject()
     private var onVacancyClickDebounce: ((String) -> Unit)? = null
     private var vacanciesAdapter: VacanciesAdapter = VacanciesAdapter { vacancyId ->
         onVacancyClickDebounce?.let { it(vacancyId) }
@@ -53,9 +49,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
 
         onVacancyClickDebounce =
             debounce(
-                CLICK_DEBOUNCE_DELAY,
-                viewLifecycleOwner.lifecycleScope,
-                false
+                coroutineScope = viewLifecycleOwner.lifecycleScope,
+                useLastParam = false
             ) { vacancyId ->
                 findNavController().navigate(
                     R.id.action_searchFragment_to_vacancyFragment,
@@ -113,13 +108,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
                 pbSearch.invisible()
                 placeholder.layoutPlaceholder.visible()
                 tvCountVacancies.invisible()
-                imageAndTextHelper.setImageAndText(
-                    requireContext(),
-                    placeholder.ivPlaceholder,
-                    placeholder.tvPlaceholder,
-                    R.drawable.placeholder_vacancy_search_no_internet_skull,
-                    resources.getString(R.string.no_internet)
-                )
+                placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_no_internet_skull)
+                placeholder.tvPlaceholder.text = resources.getString(R.string.no_internet)
             }
         } else {
             showToast(R.string.toast_check_your_internet_connection)
@@ -135,13 +125,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
             tvCountVacancies.visible()
             tvCountVacancies.text = resources.getText(R.string.no_such_vacancies)
             vacanciesAdapter.clear()
-            imageAndTextHelper.setImageAndText(
-                requireContext(),
-                placeholder.ivPlaceholder,
-                placeholder.tvPlaceholder,
-                R.drawable.placeholder_no_vacancy_list_or_region_plate_cat,
-                resources.getString(R.string.no_vacancy_list)
-            )
+            placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_no_vacancy_list_or_region_plate_cat)
+            placeholder.tvPlaceholder.text = resources.getString(R.string.no_vacancy_list)
         }
     }
 
@@ -162,13 +147,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
             ivLookingForPlaceholder.invisible()
             placeholder.layoutPlaceholder.visible()
             tvCountVacancies.invisible()
-            imageAndTextHelper.setImageAndText(
-                requireContext(),
-                placeholder.ivPlaceholder,
-                placeholder.tvPlaceholder,
-                R.drawable.placeholder_vacancy_search_server_error_cry,
-                resources.getString(R.string.server_error)
-            )
+            placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_server_error_cry)
+            placeholder.tvPlaceholder.text = resources.getString(R.string.server_error)
             showToast(R.string.toast_error_has_occurred)
         }
     }

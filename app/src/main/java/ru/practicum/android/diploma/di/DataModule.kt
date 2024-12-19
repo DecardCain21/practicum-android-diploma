@@ -29,8 +29,7 @@ import ru.practicum.android.diploma.data.mapper.VacancyDetailsMapper
 import ru.practicum.android.diploma.data.mapper.VacancyMapper
 import ru.practicum.android.diploma.data.network.AuthorizationInterceptor
 import ru.practicum.android.diploma.data.network.HeadHunterApiService
-import ru.practicum.android.diploma.data.network.NetworkClient
-import ru.practicum.android.diploma.data.network.RetrofitNetworkClient
+import ru.practicum.android.diploma.data.network.VacancyNetworkClient
 import ru.practicum.android.diploma.domain.api.FilterRepository
 import ru.practicum.android.diploma.domain.api.LocationRepository
 import ru.practicum.android.diploma.domain.sharing.ExternalNavigator
@@ -100,8 +99,8 @@ val dataModule = module {
         FavoriteVacancyDbConvertor()
     }
 
-    single<NetworkClient> {
-        RetrofitNetworkClient(get())
+    single {
+        VacancyNetworkClient(get())
     }
 
     single<ExternalNavigator> {

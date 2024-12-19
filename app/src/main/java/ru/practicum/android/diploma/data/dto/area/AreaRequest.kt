@@ -1,3 +1,5 @@
 package ru.practicum.android.diploma.data.dto.area
 
-class AreaRequest
+import ru.practicum.android.diploma.data.network.Request
+
+class AreaRequest : Request

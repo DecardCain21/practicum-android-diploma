@@ -8,25 +8,21 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.practicum.android.diploma.R
 import ru.practicum.android.diploma.app.NavigationJobApp.Companion.applicationContext
-import ru.practicum.android.diploma.common.AppConstants.EMPTY_PARAM_VALUE
 import ru.practicum.android.diploma.common.Source
 import ru.practicum.android.diploma.data.formatter.SalaryFormatter
 import ru.practicum.android.diploma.databinding.FragmentVacancyBinding
 import ru.practicum.android.diploma.domain.models.VacancyDetails
 import ru.practicum.android.diploma.domain.state.VacancyDetailsState
 import ru.practicum.android.diploma.util.BindingFragment
-import ru.practicum.android.diploma.util.ImageAndTextHelper
 import ru.practicum.android.diploma.util.invisible
 import ru.practicum.android.diploma.util.visible
 
 class VacancyFragment : BindingFragment<FragmentVacancyBinding>() {
 
     private val viewModel: VacancyViewModel by viewModel()
-    private val imageAndTextHelper: ImageAndTextHelper by inject()
     private val salaryFormatter = SalaryFormatter(applicationContext())
 
     override fun createBinding(
@@ -77,13 +73,8 @@ class VacancyFragment : BindingFragment<FragmentVacancyBinding>() {
         groupVacancy.invisible()
         placeholder.layoutPlaceholder.visible()
         pbVacancy.invisible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.vacancy_not_found_or_deleted_andy,
-            resources.getString(R.string.no_vacancy)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.vacancy_not_found_or_deleted_andy)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.no_vacancy)
     }
 
     private fun showLoading() = with(binding) {
@@ -96,26 +87,16 @@ class VacancyFragment : BindingFragment<FragmentVacancyBinding>() {
         groupVacancy.invisible()
         placeholder.layoutPlaceholder.visible()
         pbVacancy.invisible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.placeholder_vacancy_server_error_cat,
-            resources.getString(R.string.server_error)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_server_error_cat)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.server_error)
     }
 
     private fun showNoInternet() = with(binding) {
         groupVacancy.invisible()
         placeholder.layoutPlaceholder.visible()
         pbVacancy.invisible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.placeholder_vacancy_search_no_internet_skull,
-            resources.getString(R.string.no_internet)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_no_internet_skull)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.no_internet)
     }
 
     private fun showContent(vacancy: VacancyDetails) = with(binding) {
@@ -124,7 +105,7 @@ class VacancyFragment : BindingFragment<FragmentVacancyBinding>() {
         pbVacancy.invisible()
         tvVacancyName.text = vacancy.name
         tvVacancyEmployerName.text = vacancy.employerName
-        tvVacancyEmployerCity.text = if (vacancy.address != EMPTY_PARAM_VALUE) vacancy.address else vacancy.area
+        tvVacancyEmployerCity.text = if (vacancy.address != "") vacancy.address else vacancy.area
         tvVacancyExperience.text = vacancy.experience
         tvVacancySchedule.text = vacancy.schedule
         tvVacancyDescription.text = Html.fromHtml(vacancy.description, Html.FROM_HTML_MODE_COMPACT)

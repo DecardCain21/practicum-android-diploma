@@ -1,6 +1,5 @@
 package ru.practicum.android.diploma.data.mapper
 
-import ru.practicum.android.diploma.common.AppConstants.EMPTY_INT_PARAM_VALUE
 import ru.practicum.android.diploma.data.dto.vacancy.details.VacancyDetailsResponse
 import ru.practicum.android.diploma.data.formatter.AddressFormatter
 import ru.practicum.android.diploma.data.formatter.SkillsFormatter
@@ -13,8 +12,8 @@ class VacancyDetailsMapper {
         imageUrl = dto.employer?.logoUrls?.original,
         name = dto.name.orEmpty(),
         area = dto.area.name.orEmpty(),
-        salaryFrom = dto.salary?.from ?: EMPTY_INT_PARAM_VALUE,
-        salaryTo = dto.salary?.to ?: EMPTY_INT_PARAM_VALUE,
+        salaryFrom = dto.salary?.from ?: 0,
+        salaryTo = dto.salary?.to ?: 0,
         currency = dto.salary?.currency.orEmpty(),
         employerName = dto.employer?.name.orEmpty(),
         experience = dto.experience?.name.orEmpty(),

@@ -11,7 +11,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.practicum.android.diploma.R
 import ru.practicum.android.diploma.databinding.FragmentIndustryBinding
@@ -24,14 +23,12 @@ import ru.practicum.android.diploma.domain.state.IndustryState.Industries.Loadin
 import ru.practicum.android.diploma.domain.state.IndustryState.Industries.NoInternet
 import ru.practicum.android.diploma.ui.adapters.industry.IndustryAdapter
 import ru.practicum.android.diploma.util.BindingFragment
-import ru.practicum.android.diploma.util.ImageAndTextHelper
 import ru.practicum.android.diploma.util.invisible
 import ru.practicum.android.diploma.util.visible
 
 class IndustryFragment : BindingFragment<FragmentIndustryBinding>() {
 
     private val viewModel: IndustryViewModel by viewModel()
-    private val imageAndTextHelper: ImageAndTextHelper by inject()
 
     private var inputMethodManager: InputMethodManager? = null
     private val filterAdapter: IndustryAdapter = IndustryAdapter { industry ->
@@ -84,13 +81,8 @@ class IndustryFragment : BindingFragment<FragmentIndustryBinding>() {
         pbSearch.invisible()
         cbApplyButton.invisible()
         placeholder.layoutPlaceholder.visible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.placeholder_vacancy_search_no_internet_skull,
-            resources.getString(R.string.no_internet)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_no_internet_skull)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.no_internet)
     }
 
     private fun showLoading() = with(binding) {
@@ -105,13 +97,8 @@ class IndustryFragment : BindingFragment<FragmentIndustryBinding>() {
         pbSearch.invisible()
         cbApplyButton.invisible()
         placeholder.layoutPlaceholder.visible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.placeholder_no_vacancy_list_or_region_plate_cat,
-            resources.getString(R.string.no_such_industry)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_no_vacancy_list_or_region_plate_cat)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.no_such_industry)
     }
 
     private fun showError() = with(binding) {
@@ -119,13 +106,8 @@ class IndustryFragment : BindingFragment<FragmentIndustryBinding>() {
         cbApplyButton.invisible()
         pbSearch.invisible()
         placeholder.layoutPlaceholder.visible()
-        imageAndTextHelper.setImageAndText(
-            requireContext(),
-            placeholder.ivPlaceholder,
-            placeholder.tvPlaceholder,
-            R.drawable.placeholder_no_region_list_carpet,
-            resources.getString(R.string.no_region_list)
-        )
+        placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_no_region_list_carpet)
+        placeholder.tvPlaceholder.text = resources.getString(R.string.no_region_list)
         showToast(R.string.toast_error_has_occurred)
     }
 

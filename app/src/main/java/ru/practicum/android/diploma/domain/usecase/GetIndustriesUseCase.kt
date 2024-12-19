@@ -9,6 +9,7 @@ class GetIndustriesUseCase(
     private val repository: IndustryRepository
 ) {
     suspend fun execute() = withContext(Dispatchers.IO) {
+        // Если возвращаем не Pair тогда как обработать отдельно NoInternet и Error
         when (val result = repository.getIndustries()) {
             is Resource.Success -> Pair(result.data, null)
             is Resource.Error -> Pair(null, result.message)

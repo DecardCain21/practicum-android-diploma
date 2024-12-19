@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.practicum.android.diploma.R
 import ru.practicum.android.diploma.databinding.FragmentCountryBinding
@@ -22,7 +21,6 @@ import ru.practicum.android.diploma.ui.adapters.FilterAdapter
 import ru.practicum.android.diploma.ui.adapters.FilterAdapter.SaveFilterListener
 import ru.practicum.android.diploma.ui.adapters.ItemFilter
 import ru.practicum.android.diploma.util.BindingFragment
-import ru.practicum.android.diploma.util.ImageAndTextHelper
 import ru.practicum.android.diploma.util.invisible
 import ru.practicum.android.diploma.util.visible
 
@@ -30,7 +28,6 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
 
     private val filterAdapter = FilterAdapter()
     private val viewModel: CountryViewModel by viewModel()
-    private val imageAndTextHelper: ImageAndTextHelper by inject()
 
     override fun createBinding(inflater: LayoutInflater, container: ViewGroup?) =
         FragmentCountryBinding.inflate(inflater, container, false)
@@ -76,13 +73,8 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
             rvCountries.invisible()
             pbSearch.invisible()
             placeholder.layoutPlaceholder.visible()
-            imageAndTextHelper.setImageAndText(
-                requireContext(),
-                placeholder.ivPlaceholder,
-                placeholder.tvPlaceholder,
-                R.drawable.placeholder_vacancy_search_no_internet_skull,
-                resources.getString(R.string.no_internet)
-            )
+            placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_no_internet_skull)
+            placeholder.tvPlaceholder.text = resources.getString(R.string.no_internet)
         }
     }
 
@@ -99,13 +91,8 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
             rvCountries.invisible()
             pbSearch.invisible()
             placeholder.layoutPlaceholder.visible()
-            imageAndTextHelper.setImageAndText(
-                requireContext(),
-                placeholder.ivPlaceholder,
-                placeholder.tvPlaceholder,
-                R.drawable.placeholder_no_vacancy_list_or_region_plate_cat,
-                resources.getString(R.string.no_vacancy_list)
-            )
+            placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_no_vacancy_list_or_region_plate_cat)
+            placeholder.tvPlaceholder.text = resources.getString(R.string.no_vacancy_list)
         }
     }
 
@@ -114,13 +101,8 @@ class CountryFragment : BindingFragment<FragmentCountryBinding>() {
             rvCountries.invisible()
             pbSearch.invisible()
             placeholder.layoutPlaceholder.visible()
-            imageAndTextHelper.setImageAndText(
-                requireContext(),
-                placeholder.ivPlaceholder,
-                placeholder.tvPlaceholder,
-                R.drawable.placeholder_vacancy_search_server_error_cry,
-                resources.getString(R.string.server_error)
-            )
+            placeholder.ivPlaceholder.setImageResource(R.drawable.placeholder_vacancy_search_server_error_cry)
+            placeholder.tvPlaceholder.text = resources.getString(R.string.server_error)
             showToast(R.string.toast_error_has_occurred)
         }
     }
